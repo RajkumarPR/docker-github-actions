@@ -39,7 +39,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: my-artifact
-          path: target/docker-github-actions-0.0.1-SNAPSHOT.jar
+          path: /home/runner/work/docker-github-actions/docker-github-actions/target/docker-github-actions-0.0.1-SNAPSHOT.jar
 
       - name: Display structure of downloaded files
         run: ls -R
