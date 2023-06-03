@@ -7,5 +7,4 @@ COPY --from=builder application/snapshot-dependencies/ ./
 COPY --from=builder application/application/ ./
 RUN chown -R javauser:javauser .
 USER javauser
-HEALTHCHECK --interval=30s --timeout=3s --retries=1 CMD wget -qO- http://localhost:8080/actuator/health/ | grep UP || exit 1
 ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
