@@ -33,3 +33,11 @@ jobs:
         run: |
           mvn clean
           mvn -B package --file pom.xml
+
+      - name: Build docker image
+        uses: docker/build-push-actions@v2
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/docker-github-actions:latest
